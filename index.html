@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi Ocan 🤍</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:," />
+   />
+</head>
+<body>
+
+  <audio id="bgMusic" src="assets/Risk-it-All.mp3" loop preload="auto"></audio>
+  
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="nav">
+    <div class="nav-logo"> Roxeon </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#distance">Distance</a></li>
+      <li><a href="#memories">Memories</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#playlist">Playlist</a></li>
+    </ul>
+    <button class="nav-btn">♥ For You</button>
+  </nav>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+
+    <!-- Floating hearts -->
+    <span class="heart" style="top:12%;left:38%;animation-delay:0s">♥</span>
+    <span class="heart" style="top:25%;left:52%;animation-delay:0.5s;font-size:13px">♥</span>
+    <span class="heart" style="bottom:18%;left:42%;animation-delay:1s;font-size:16px">♥</span>
+
+    <!-- Sparkles -->
+    <span class="sparkle" style="top:15%;left:10%;animation-delay:0.3s">✦</span>
+    <span class="sparkle" style="top:70%;left:8%;animation-delay:1.2s">✦</span>
+    <span class="sparkle" style="top:40%;right:12%;animation-delay:0.7s">✦</span>
+
+    <!-- Hero Left -->
+    <div class="hero-left fade-up">
+      <p class="hero-tag hand" style="font-size:26px">hi sayang,</p>
+      <h1 class="hero-title">I miss you 🤍</h1>
+      <p class="hero-sub">
+        Meskipun jarak memisahkan,<br>
+        I still love you.<br>
+        My love for you grows every day.
+      </p>
+      <button class="hero-btn">♥ lihat cerita kita</button>
+    </div>
+
+    <!-- Hero Right (Polaroid) -->
+    <div class="hero-right fade-up" style="transition-delay:0.2s">
+      <div class="polaroid-wrap">
+        <div class="polaroid">
+          <div class="tape"></div>
+          <img
+            src="assets/berdua.jpg"
+            alt="berdua"
+            onerror="this.src='https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=400&q=80'"
+          >
+          <p class="polaroid-caption">you + me 🤍</p>
+        </div>
+        <div class="sticky-note">
+          Different country, same love 🤍
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ==================== DISTANCE TRACKER ==================== -->
+  <section class="dist-section fade-up" id="distance">
+
+    <p class="section-eyebrow">jarak memang jauh, tapi cinta kita lebih kuat 🤍</p>
+
+    <div class="dist-grid">
+
+      <!-- Ocan - Regensburg -->
+      <div class="city-card">
+        <img
+          class="city-img"
+          src="assets/Regensburg.jpg"
+          alt="jerman"
+          onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300'"
+        >
+        <div class="city-pin">📍 Regensburg, Germany</div>
+        <div class="city-name">Ocan</div>
+        <div class="city-time" id="gnyTime">--:-- --</div>
+        <div class="city-date" id="gnyDate">--</div>
+      </div>
+
+      <!-- Center - Distance -->
+      <div>
+        <div class="dist-center">
+          <div class="dist-label">kita terpisah sejauh</div>
+          <div>
+            <span class="dist-num">11.514</span>
+            <span class="dist-unit">km</span>
+          </div>
+          <div class="dist-sub">tapi kita tetap satu 🤍</div>
+        </div>
+        <div class="plane-row">
+          <div class="plane-line"></div>
+          <span>✈️</span>
+          <div class="plane-line"></div>
+        </div>
+      </div>
+
+      <!-- - Manado -->
+      <div class="city-card">
+        <img
+          class="city-img"
+          src="assets/manado.jpg"
+          alt="Manado"
+          onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300'"
+        >
+        <div class="city-pin">📍 Manado, Indonesia 🇮🇩</div>
+        <div class="city-name">Eon</div>
+        <div class="city-time" id="witTime">--:-- --</div>
+        <div class="city-date" id="witDate">--</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== MEMORIES ==================== -->
+  <section class="mem-section fade-up" id="memories">
+
+    <div style="text-align:center">
+      <h2 class="section-title">our favorite memories 🤍</h2>
+      <p class="section-sub">beberapa momen berharga kita 📸</p>
+    </div>
+
+    <!-- Toolbar: kalender + filter tanggal -->
+    <div class="mem-toolbar">
+      <button class="mem-cal-btn" id="memCalBtn" type="button">
+        📅 <span id="memCalLabel">semua tanggal</span> <span class="mem-caret">▾</span>
+      </button>
+      <span class="mem-count" id="memCount"></span>
+      <button class="mem-reset" id="memReset" type="button" hidden>✕ tampilkan semua</button>
+
+      <!-- Calendar popover -->
+      <div class="mem-calendar" id="memCalendar" hidden>
+        <div class="cal-head">
+          <button type="button" class="cal-nav" id="calPrev">‹</button>
+          <span class="cal-month" id="calMonthLabel"></span>
+          <button type="button" class="cal-nav" id="calNext">›</button>
+        </div>
+        <div class="cal-weekdays">
+          <span>Min</span><span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-foot"><span class="cal-dot-legend"></span> ada momen di tanggal ini</div>
+      </div>
+    </div>
+
+    <!-- Gallery (diisi otomatis dari script.js) -->
+    <div class="gallery-wrap" id="memGalleryWrap">
+      <button class="gallery-btn left" onclick="scrollGallery(-1)">‹</button>
+      <div class="gallery" id="memGallery"></div>
+      <button class="gallery-btn right" onclick="scrollGallery(1)">›</button>
+      <span class="mem-hint" id="memHint">geser untuk lihat lebih →</span>
+    </div>
+
+    <!-- Empty state -->
+    <p class="mem-empty" id="memEmpty" hidden>belum ada momen di tanggal ini 🤍</p>
+
+    <!-- Scroll progress -->
+    <div class="mem-scrollbar" id="memScrollbar">
+      <div class="mem-scroll-thumb" id="memScrollThumb"></div>
+    </div>
+
+  </section>
+
+
+  <!-- ==================== MEMORIES POPUP (ADD PHOTO) ==================== -->
+  <div class="journey-popup" id="memPopup">
+    <div class="popup-card">
+      <h3 class="popup-title">Add New Photo ♡</h3>
+
+      <label class="upload-label" onclick="document.getElementById('memPhotoUpload').click()">
+        <span>📷 Pilih Foto</span>
+      </label>
+      <input type="file" id="memPhotoUpload" accept="image/*" style="display:none">
+      <img id="memPhotoPreview" src="" alt="preview"
+        style="display:none; width:100%; height:120px; object-fit:cover; border-radius:12px; margin-bottom:10px;">
+
+      <input type="date" id="memDate">
+      <input type="text" id="memCaption" placeholder="Caption (contoh: first date 🤍)">
+
+      <div class="popup-action">
+        <button onclick="addMemory()">Save ♡</button>
+        <button class="close-popup" onclick="closeMemPopup()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+ <!-- ============ SECTION JOURNEY ============ -->
+<section class="journey">
+  <div class="journey-head">
+    <div>
+      <div class="journey-eyebrow">Our Story</div>
+      <h2 class="journey-title">Our Journey ♡</h2>
+    </div>
+    <div class="journey-controls">
+      <button class="add-btn ghost" id="openCalendar">📅 Kalender</button>
+      <button class="add-btn" id="openPopup">+ Add Journey</button>
+    </div>
+  </div>
+
+  <!-- Navigasi tahun + chip bulan -->
+  <div class="journey-nav">
+    <div class="year-switch">
+      <button class="year-btn" id="prevYear">‹</button>
+      <span class="year-label" id="yearLabel">—</span>
+      <button class="year-btn" id="nextYear">›</button>
+    </div>
+    <div class="month-chips" id="monthChips"></div>
+  </div>
+
+  <!-- Progress scroll -->
+  <div class="scroll-progress"><div class="scroll-progress-bar" id="scrollBar"></div></div>
+
+  <!-- Timeline -->
+  <div class="timeline-section">
+    <div class="timeline-wrap" id="timelineWrap">
+      <div class="timeline" id="timeline"></div>
+    </div>
+    <button class="fab-add" id="fabAdd" title="Add Journey">+</button>
+  </div>
+</section>
+
+<!-- ============ POPUP FORM ============ -->
+<div class="journey-popup" id="journeyPopup">
+  <div class="popup-card">
+    <h3 class="popup-title">Add New Journey ♡</h3>
+
+    <div class="media-tabs">
+      <button class="tab-btn active" id="tabPhoto" onclick="switchMediaTab('photo')">📷 Photo</button>
+      <button class="tab-btn" id="tabVideo" onclick="switchMediaTab('video')">🎬 Video</button>
+    </div>
+
+    <div id="photoField">
+      <label class="upload-label" onclick="document.getElementById('photoUpload').click()"><span>📷 Pilih Foto</span></label>
+      <input type="file" id="photoUpload" accept="image/*" style="display:none">
+      <input type="hidden" id="mediaPhoto">
+      <img id="photoPreview" src="" alt="preview" style="display:none; width:100%; height:100px; object-fit:cover; border-radius:12px; margin-top:8px;">
+    </div>
+
+    <div id="videoField" style="display:none">
+      <label class="upload-label" onclick="document.getElementById('videoUpload').click()"><span>🎬 Pilih Video</span></label>
+      <input type="file" id="videoUpload" accept="video/*" style="display:none">
+      <input type="hidden" id="mediaVideo">
+      <input type="text" id="journeyBadge" placeholder="Badge (contoh: 1st ♡, special, moment ♡)">
+      <p class="popup-hint">max 5-10 detik ya sayang!</p>
+      <video id="videoPreview" src="" controls muted style="display:none; width:100%; height:100px; object-fit:cover; border-radius:12px; margin-top:8px;"></video>
+    </div>
+
+    <input type="text" id="journeyTitle" placeholder="Journey title">
+    <input type="date" id="journeyDate">
+    <input type="text" id="journeyLocation" placeholder="📍 Location">
+    <textarea id="journeyDesc" placeholder="Write your story..."></textarea>
+
+    <div class="popup-action">
+      <button onclick="addJourney()">Save ♡</button>
+      <button class="close-popup" onclick="closePopup()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ POPUP KALENDER (JOURNEY) ============ -->
+<div class="journey-popup" id="calendarPopup">
+  <div class="popup-card">
+    <div class="jcal-head">
+      <span class="jcal-title" id="calTitle">—</span>
+      <div class="jcal-nav">
+        <button class="year-btn" id="journeyCalPrev">‹</button>
+        <button class="year-btn" id="journeyCalNext">›</button>
+      </div>
+    </div>
+    <div class="jcal-grid" id="journeyCalGrid"></div>
+    <p class="jcal-legend">Tanggal ber-♡ ada journey-nya — klik untuk lompat ke ceritanya ✨</p>
+    <div class="popup-action" style="margin-top:14px;">
+      <button class="close-popup" onclick="closeCalendar()" style="flex:1">Tutup</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  <!-- ==================== PLAYLIST ==================== -->
+  <section class="playlist-section fade-up" id="playlist">
+
+    <div class="playlist-left">
+      <h2 class="playlist-heading">our playlist 🎵</h2>
+      <p class="playlist-sub">lagu-lagu untuk kita</p>
+    </div>
+
+    <div class="player-card">
+      <img
+        class="album-art"
+        src="assets/Risk it all bruno.jpg"
+        alt="album"
+      >
+      <div class="player-info">
+        <div class="song-title">Risk It All</div>
+        <div class="song-artist">Bruno Mars</div>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="time-row">
+          <span>1:24</span>
+          <span>3:35</span>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="ctrl-btn" title="shuffle">⇄</button>
+        <button class="play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+        <button class="ctrl-btn" title="volume">🔊</button>
+      </div>
+    </div>
+
+    
+
+    <a href="https://open.spotify.com/playlist/3kwYe4uM1AhvyIT7DPMzhd?si=Kc1a05DgSYarbj9wOH7NIw" target="_blank" 
+      class="pink-btn">lihat playlist lengkap 🎵
+    </a> 
+
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <span class="sparkle" style="position:relative;top:0;left:0;display:inline-block;margin:0 8px;font-size:20px">✦</span>
+    <span class="sparkle" style="position:relative;top:0;left:0;display:inline-block;margin:0 8px;font-size:14px;animation-delay:0.5s">✦</span>
+    <p class="footer-quote">terima kasih sudah menjadi bagian terbaik dalam hidupku</p>
+    <div class="footer-heart">🤍</div>
+    <p class="footer-sub">no matter where we are, i'll always choose you.</p>
+    <p style="margin-top:24px;font-size:11px;color:#7C3D52">made with love ♥</p>
+  </footer>
+
+</div><!-- end .site-wrap -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
