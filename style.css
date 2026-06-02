@@ -634,7 +634,7 @@ body {
 .tl-item.is-video::before { border-color: #f472b6; }
 
 .tl-date {
-  position: absolute; left: -90px; top: 15px; width: 56px; text-align: center;
+  position: absolute; left: -93px; top: 15px; width: 56px; text-align: center;
   font-size: 11px; font-weight: 800; color: #e85d8a; line-height: 1.15;
 }
 .tl-date .d { font-size: 18px; font-family: 'Caveat', cursive; display: block; }
