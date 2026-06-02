@@ -570,6 +570,7 @@ function showToast(message, emoji = '♡', type = '') {
 // ---------- LOAD DARI SUPABASE ----------
 async function loadJourneysFromSupabase() {
   const { data, error } = await supabaseClient
+  
     .from('journeys')
     .select('*')
     .order('journey_date', { ascending: true });   // urut berdasarkan TANGGAL
@@ -583,8 +584,9 @@ async function loadJourneysFromSupabase() {
   allJourneys = data || [];
 
   // set tahun aktif ke tahun data terbaru (kalau ada)
+  // selalu mulai dari tahun TERLAMA yang ada isinya
   const years = yearsAvailable();
-  if (years.length && !years.includes(currentYear)) currentYear = years[years.length - 1];
+  if (years.length) currentYear = years[0];
 
   renderTimeline();
 }
